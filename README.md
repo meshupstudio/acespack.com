@@ -81,7 +81,7 @@ Netlify Forms works with both options, as long as the form HTML is in the deploy
 
 ## Known gaps / TODO
 
-- **No street address.** The Duda export only has a PO Box (Clovis) and a map pin at the generic "Fresno, CA 93721". The map on `/contact-us/` uses that same location for now.
+- **No street address.** The Duda export only has a PO Box (Clovis). The map on `/contact-us/` shows Fresno, CA (city-level) as the service area; swap in a street address if there is a location customers should visit.
 - **No horizontal baler photo.** The old site reused a compactor photo on the home page's "Horizontal Balers" card. That's kept for now, with a `TODO` comment in the HTML.
 - **No social / review links** (Facebook, Yelp, etc.) were found in the export.
 - The Duda "About us" intro was leftover template copy about a dentist's office, so it was dropped. Only the real "Our history" text is used.
