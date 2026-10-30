@@ -1,0 +1,51 @@
+# Netlify config — plain static site, no build step.
+[build]
+  publish = "."
+  command = ""
+
+# Short / no caching while the site is still being revised.
+# Browsers revalidate on every visit, so edits show up immediately.
+# Once the site is stable you can raise max-age (e.g. 86400) for /assets/*.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/assets/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/assets/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/assets/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=300, must-revalidate"
+
+# Old Duda URLs -> new pages (the main page paths /about, /compactors,
+# /balers and /contact-us are unchanged and need no redirect).
+[[redirects]]
+  from = "/home"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/site/*"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/feed/*"
+  to = "/"
+  status = 301
